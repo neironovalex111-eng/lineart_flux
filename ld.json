@@ -1,0 +1,289 @@
+{
+  "6": {
+    "inputs": {
+      "text": "An urban outdoor scene featuring a car AUDI_E_TRON_GT2025 black light reflection with a modern building with a unique architectural design. The building has a dark facade with large, crisscrossing metal beams in a light green color, creating a geometric pattern. The setting is a city street with a smooth asphalt road and a tiled sidewalk. It's daytime with bright, natural lighting casting soft shadows. The mood is contemporary and industrial, highlighting the contrast between the sleek building materials and the urban environment. Location in style of MAGAI",
+      "clip": [
+        "190",
+        1
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "CLIP Text Encode (Positive Prompt)"
+    }
+  },
+  "8": {
+    "inputs": {
+      "samples": [
+        "210",
+        0
+      ],
+      "vae": [
+        "39",
+        0
+      ]
+    },
+    "class_type": "VAEDecode",
+    "_meta": {
+      "title": "VAE Decode"
+    }
+  },
+  "35": {
+    "inputs": {
+      "guidance": 2.5,
+      "conditioning": [
+        "177",
+        0
+      ]
+    },
+    "class_type": "FluxGuidance",
+    "_meta": {
+      "title": "FluxGuidance"
+    }
+  },
+  "37": {
+    "inputs": {
+      "unet_name": "flux1-kontext-dev.safetensors",
+      "weight_dtype": "default"
+    },
+    "class_type": "UNETLoader",
+    "_meta": {
+      "title": "Load Diffusion Model"
+    }
+  },
+  "38": {
+    "inputs": {
+      "clip_name1": "clip_l.safetensors",
+      "clip_name2": "t5xxl_fp16.safetensors",
+      "type": "flux",
+      "device": "default"
+    },
+    "class_type": "DualCLIPLoader",
+    "_meta": {
+      "title": "DualCLIPLoader"
+    }
+  },
+  "39": {
+    "inputs": {
+      "vae_name": "ae.safetensors"
+    },
+    "class_type": "VAELoader",
+    "_meta": {
+      "title": "Load VAE"
+    }
+  },
+  "124": {
+    "inputs": {
+      "pixels": [
+        "142",
+        0
+      ],
+      "vae": [
+        "39",
+        0
+      ]
+    },
+    "class_type": "VAEEncode",
+    "_meta": {
+      "title": "VAE Encode"
+    }
+  },
+  "135": {
+    "inputs": {
+      "conditioning": [
+        "233",
+        1
+      ]
+    },
+    "class_type": "ConditioningZeroOut",
+    "_meta": {
+      "title": "ConditioningZeroOut"
+    }
+  },
+  "136": {
+    "inputs": {
+      "filename_prefix": "ComfyUI",
+      "images": [
+        "8",
+        0
+      ]
+    },
+    "class_type": "SaveImage",
+    "_meta": {
+      "title": "Save Image"
+    }
+  },
+  "142": {
+    "inputs": {
+      "image": "2t.png [output]",
+      "refresh": "refresh"
+    },
+    "class_type": "LoadImageOutput",
+    "_meta": {
+      "title": "Load Image (from Outputs)"
+    }
+  },
+  "177": {
+    "inputs": {
+      "conditioning": [
+        "233",
+        0
+      ],
+      "latent": [
+        "124",
+        0
+      ]
+    },
+    "class_type": "ReferenceLatent",
+    "_meta": {
+      "title": "ReferenceLatent"
+    }
+  },
+  "190": {
+    "inputs": {
+      "lora_name": "AUDI_E_TRON_GT2025.safetensors",
+      "strength_model": 1,
+      "strength_clip": 1,
+      "model": [
+        "239",
+        0
+      ],
+      "clip": [
+        "239",
+        1
+      ]
+    },
+    "class_type": "LoraLoader",
+    "_meta": {
+      "title": "Load LoRA Bg"
+    }
+  },
+  "205": {
+    "inputs": {
+      "text": "",
+      "clip": [
+        "190",
+        1
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "NEGATIVE"
+    }
+  },
+  "210": {
+    "inputs": {
+      "seed": 277677397789498,
+      "steps": 50,
+      "cfg": 1,
+      "sampler_name": "heunpp2",
+      "scheduler": "sgm_uniform",
+      "denoise": 1,
+      "model": [
+        "190",
+        0
+      ],
+      "positive": [
+        "35",
+        0
+      ],
+      "negative": [
+        "135",
+        0
+      ],
+      "latent_image": [
+        "124",
+        0
+      ]
+    },
+    "class_type": "KSampler",
+    "_meta": {
+      "title": "KSampler"
+    }
+  },
+  "232": {
+    "inputs": {
+      "control_net_name": "FLUX.1/InstantX-FLUX1-Dev-Union/diffusion_pytorch_model.safetensors"
+    },
+    "class_type": "ControlNetLoader",
+    "_meta": {
+      "title": "Load ControlNet Model"
+    }
+  },
+  "233": {
+    "inputs": {
+      "strength": 0.75,
+      "start_percent": 0,
+      "end_percent": 1,
+      "positive": [
+        "6",
+        0
+      ],
+      "negative": [
+        "205",
+        0
+      ],
+      "control_net": [
+        "232",
+        0
+      ],
+      "image": [
+        "240",
+        0
+      ],
+      "vae": [
+        "39",
+        0
+      ]
+    },
+    "class_type": "ControlNetApplyAdvanced",
+    "_meta": {
+      "title": "Apply ControlNet"
+    }
+  },
+  "238": {
+    "inputs": {
+      "images": [
+        "240",
+        0
+      ]
+    },
+    "class_type": "PreviewImage",
+    "_meta": {
+      "title": "Preview Image"
+    }
+  },
+  "239": {
+    "inputs": {
+      "lora_name": "MAG_14785.safetensors",
+      "strength_model": 0.85,
+      "strength_clip": 1,
+      "model": [
+        "37",
+        0
+      ],
+      "clip": [
+        "38",
+        0
+      ]
+    },
+    "class_type": "LoraLoader",
+    "_meta": {
+      "title": "Load LoRA Car"
+    }
+  },
+  "240": {
+    "inputs": {
+      "low_threshold": 0.4,
+      "high_threshold": 0.8,
+      "image": [
+        "142",
+        0
+      ]
+    },
+    "class_type": "Canny",
+    "_meta": {
+      "title": "Canny"
+    }
+  }
+}
