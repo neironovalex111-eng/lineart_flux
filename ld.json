@@ -203,7 +203,7 @@
   },
   "232": {
     "inputs": {
-      "control_net_name": "FLUX.1/InstantX-FLUX1-Dev-Union/diffusion_pytorch_model.safetensors"
+      "control_net_name": "union.safetensors"
     },
     "class_type": "ControlNetLoader",
     "_meta": {
