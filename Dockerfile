@@ -28,6 +28,7 @@ RUN python -m pip install --upgrade pip && python -m pip install uv && \
 WORKDIR /ComfyUI/custom_nodes
 RUN git clone https://github.com/ltdrdata/ComfyUI-Manager comfyui-manager && \
     git clone https://github.com/pythongosssss/ComfyUI-Custom-Scripts && \
+    git clone https://github.com/Fannovel16/comfyui_controlnet_aux && \
     git clone https://github.com/rgthree/rgthree-comfy && \
     git clone https://github.com/kijai/ComfyUI-KJNodes && \
     git clone https://github.com/kijai/ComfyUI-Florence2 && \
