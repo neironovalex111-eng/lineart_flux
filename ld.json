@@ -141,7 +141,7 @@
   },
   "190": {
     "inputs": {
-      "lora_name": "AUDI_E_TRON_GT2025.safetensors",
+      "lora_name": "car.safetensors",
       "strength_model": 1,
       "strength_clip": 1,
       "model": [
@@ -255,7 +255,7 @@
   },
   "239": {
     "inputs": {
-      "lora_name": "MAG_14785.safetensors",
+      "lora_name": "bg.safetensors",
       "strength_model": 0.85,
       "strength_clip": 1,
       "model": [

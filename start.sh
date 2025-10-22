@@ -21,8 +21,8 @@ if [ ! -f "$FLAG_FILE" ]; then
     wget --header="Authorization: Bearer ${HF_TOKEN}" https://huggingface.co/neishonagenc/360models/resolve/main/text_encoders/t5xxl_fp16.safetensors -O /ComfyUI/models/text_encoders/t5xxl_fp16.safetensors
     wget --header="Authorization: Bearer ${HF_TOKEN}" https://huggingface.co/neishonagenc/360models/resolve/main/text_encoders/clip_l.safetensors -O /ComfyUI/models/text_encoders/clip_l.safetensors
     wget --header="Authorization: Bearer ${HF_TOKEN}" https://huggingface.co/neishonagenc/360models/resolve/main/vae/ae.safetensors -O /ComfyUI/models/vae/ae.safetensors
-    wget https://cdn.maground.ai/eu/int/loras/MAG_14785.safetensors -O ${COMFY_PATH}/models/loras/MAG_14785.safetensors
-    wget https://cdn.maground.ai/eu/int/loras/AUDI_E_TRON_GT2025_000004500.safetensors -O ${COMFY_PATH}/models/loras/AUDI_E_TRON_GT2025.safetensors
+    wget https://cdn.maground.ai/eu/int/loras/MAG_14785.safetensors -O ${COMFY_PATH}/models/loras/bg.safetensors
+    wget https://cdn.maground.ai/eu/int/loras/AUDI_E_TRON_GT2025_000004500.safetensors -O ${COMFY_PATH}/models/loras/car.safetensors
 
 
     echo "--- Модели успешно скачаны! ---"
