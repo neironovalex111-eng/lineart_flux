@@ -28,6 +28,8 @@ LORA_BG_NODE_ID = '239'
 # ID ноды для LoRA машины (AUDI_E_TRON_GT2025.safetensors)
 LORA_CAR_NODE_ID = '190'
 
+PROMPT_NODE_ID = "6"
+
 # --- ИМЕНА ФАЙЛОВ ПО УМОЛЧАНИЮ (из start.sh) ---
 DEFAULT_LORA_BG_NAME = 'MAG_14785.safetensors'
 DEFAULT_LORA_CAR_NAME = 'AUDI_E_TRON_GT2025.safetensors'
@@ -161,6 +163,7 @@ def handler(job):
     # НОВОЕ: Получаем URL для LoRA из входных данных
     lora_bg_url = job_input.get("lora_bg_url")
     lora_car_url = job_input.get("lora_car_url")
+    prompt = job_input.get("prompt")
 
     client_id = str(uuid.uuid4())
     ws = None
@@ -188,6 +191,7 @@ def handler(job):
         # НОВОЕ: Подставляем имена LoRA моделей в соответствующие ноды
         prompt_workflow[LORA_BG_NODE_ID]['inputs']['lora_name'] = lora_bg_filename
         prompt_workflow[LORA_CAR_NODE_ID]['inputs']['lora_name'] = lora_car_filename
+        prompt_workflow[PROMPT_NODE_ID]['inputs']['text'] = prompt
 
         # 3. Отправляем задачу в очередь
         queued_data = queue_prompt(prompt_workflow, client_id)
