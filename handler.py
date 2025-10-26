@@ -28,20 +28,13 @@ LORA_BG_NODE_ID = '239'
 # ID ноды для LoRA машины (AUDI_E_TRON_GT2025.safetensors)
 LORA_CAR_NODE_ID = '190'
 
-WEITH_BG_NODE_ID = "239"
+WEIGHT_BG_NODE_ID = "239"
 
-WEITH_CAR_NODE_ID = "190"
+WEIGHT_CAR_NODE_ID = "190"
 
-WEITH_CONTROLNET_NODE_ID = "233"
+WEIGHT_CONTROLNET_NODE_ID = "233"
 
 PROMPT_NODE_ID = "6"
-
-weight_car = "0.9"
-
-weight_bg = "0.8"
-
-weight_controlnet = "0.7"
-
 
 # --- ИМЕНА ФАЙЛОВ ПО УМОЛЧАНИЮ (из start.sh) ---
 DEFAULT_LORA_BG_NAME = 'MAG_14785.safetensors'
@@ -208,10 +201,10 @@ def handler(job):
         prompt_workflow[LORA_BG_NODE_ID]['inputs']['lora_name'] = lora_bg_filename
         prompt_workflow[LORA_CAR_NODE_ID]['inputs']['lora_name'] = lora_car_filename
 
-        prompt_workflow[WEITH_CONTROLNET_NODE_ID]['inputs']['strenght'] = weight_controlnet
+        prompt_workflow[WEIGHT_CONTROLNET_NODE_ID]['inputs']['strenght'] = weight_controlnet
 
-        prompt_workflow[WEITH_BG_NODE_ID]['inputs']['strenght_model'] = weight_bg
-        prompt_workflow[WEITH_CAR_NODE_ID]['inputs']['strenght_model'] = weight_car
+        prompt_workflow[WEIGHT_BG_NODE_ID]['inputs']['strength_model'] = weight_bg
+        prompt_workflow[WEIGHT_CAR_NODE_ID]['inputs']['strenght_model'] = weight_car
 
         prompt_workflow[PROMPT_NODE_ID]['inputs']['text'] = prompt
 
