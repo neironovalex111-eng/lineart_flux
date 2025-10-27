@@ -36,7 +36,6 @@ WEIGHT_CONTROLNET_NODE_ID = "233"
 
 PROMPT_NODE_ID = "6"
 
-# --- ИМЕНА ФАЙЛОВ ПО УМОЛЧАНИЮ (из start.sh) ---
 DEFAULT_LORA_BG_NAME = 'MAG_14785.safetensors'
 DEFAULT_LORA_CAR_NAME = 'AUDI_E_TRON_GT2025.safetensors'
 
