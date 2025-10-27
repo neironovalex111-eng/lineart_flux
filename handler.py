@@ -25,7 +25,6 @@ LOAD_IMAGE_NODE_ID = '142'
 SAVE_IMAGE_NODE_ID = '136'
 # ID ноды для LoRA фона (MAG_14785.safetensors)
 LORA_BG_NODE_ID = '239'
-# ID ноды для LoRA машины (AUDI_E_TRON_GT2025.safetensors)
 LORA_CAR_NODE_ID = '190'
 
 WEIGHT_BG_NODE_ID = "239"
