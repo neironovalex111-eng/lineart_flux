@@ -18,7 +18,6 @@ RUN python3.11 -m venv /opt/venv
 ENV PATH="/opt/venv/bin:$PATH"
 
 
-# Устанавливаем зависимости Python
 WORKDIR /ComfyUI
 RUN python -m pip install --upgrade pip && python -m pip install uv && \
     uv pip install torch torchvision torchaudio --extra-index-url https://download.pytorch.org/whl/cu128 --no-cache-dir && \
