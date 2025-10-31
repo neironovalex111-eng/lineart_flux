@@ -167,9 +167,17 @@ def handler(job):
     # НОВОЕ: Получаем URL для LoRA из входных данных
     lora_bg_url = job_input.get("lora_bg_url")
     lora_car_url = job_input.get("lora_car_url")
+
     weight_car = job_input.get("weight_car")
     weight_bg = job_input.get("weight_bg")
     weight_controlnet = job_input.get("weight_controlnet")
+    if not weight_car:
+        weight_car = 1.3 
+    if not weight_bg:
+        weight_bg = 0.9
+    if not weight_controlnet:
+        weight_controlnet = 0.8
+
     prompt = job_input.get("prompt")
 
     client_id = str(uuid.uuid4())
