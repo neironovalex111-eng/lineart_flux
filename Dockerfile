@@ -3,7 +3,7 @@ FROM nvidia/cuda:12.8.0-runtime-ubuntu22.04
 ENV DEBIAN_FRONTEND=noninteractive
 
 # Устанавливаем базовые пакеты
-RUN apt-get update && apt-get install -y --no-install-recommends git wget libgl1-mesa-glx libglib2.0-0 python3.11 python3.11-venv && rm -rf /var/lib/apt/lists/*
+RUN apt-get update && apt-get install -y --no-install-recommends git wget libgl1-mesa-glx libglib2.0-0 python3.14 python3.14-venv && rm -rf /var/lib/apt/lists/*
 
 # Устанавливаем ComfyUI
 WORKDIR /
@@ -14,13 +14,13 @@ COPY start.sh .
 COPY requirements.txt .
 
 # Настраиваем venv
-RUN python3.11 -m venv /opt/venv
+RUN python3.14 -m venv /opt/venv
 ENV PATH="/opt/venv/bin:$PATH"
 
 
 WORKDIR /ComfyUI
 RUN python -m pip install --upgrade pip && python -m pip install uv && \
-    uv pip install torch torchvision torchaudio --extra-index-url https://download.pytorch.org/whl/cu128 --no-cache-dir && \
+    uv pip install torch torchvision torchaudio --extra-index-url https://download.pytorch.org/whl/cu130 --no-cache-dir && \
     uv pip install --upgrade -r /requirements.txt --no-cache-dir
 
 # Устанавливаем кастомные ноды
