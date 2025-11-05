@@ -20,7 +20,7 @@ ENV PATH="/opt/venv/bin:$PATH"
 
 WORKDIR /ComfyUI
 RUN python -m pip install --upgrade pip && python -m pip install uv && \
-    uv pip install torch torchvision torchaudio --extra-index-url https://download.pytorch.org/whl/cu130 --no-cache-dir && \
+    uv pip install torch torchvision torchaudio --extra-index-url https://download.pytorch.org/whl/cu121 --no-cache-dir && \
     uv pip install --upgrade -r /requirements.txt --no-cache-dir
 
 # Устанавливаем кастомные ноды
