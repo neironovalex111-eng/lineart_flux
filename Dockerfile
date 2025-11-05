@@ -14,7 +14,7 @@ COPY start.sh .
 COPY requirements.txt .
 
 # Настраиваем venv
-RUN python3.14 -m venv /opt/venv
+RUN python3 -m venv /opt/venv
 ENV PATH="/opt/venv/bin:$PATH"
 
 
