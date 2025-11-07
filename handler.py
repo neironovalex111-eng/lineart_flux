@@ -215,7 +215,7 @@ def handler(job):
 
         # 4. Слушаем WebSocket до завершения
         ws_url = f"ws://{COMFY_HOST}/ws?clientId={client_id}"
-        ws = websocket.create_connection(ws_url, timeout=10)
+        ws = websocket.create_connection(ws_url, timeout=600)
         
         execution_done = False
         while not execution_done:
